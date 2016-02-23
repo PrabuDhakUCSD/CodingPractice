@@ -1,9 +1,15 @@
 
 public class CoinChangeK {
-
     /*
      * Count number of ways to make change for 'value' using denominations given in 'denom' with exactly 'k' coins.
      * This is a refined problem of the simpler problem that asks to find number of ways without the 'k' constraint.
+     *
+     * dp[k][i][j] = ways to make change for value i using denom[0...j] with exactly k coins 
+     * dp[k][i][0] = 0 // no coins to choose
+     * dp[k][0][j] = 0 // zero value can't be obtained with 1 or more coins
+     * dp[1][i][j] = 1 when denom[j] == i || dp[1][i][j-1] == 1
+     * dp[k][i][j] = dp[k][i][j-1] // don't choose denom j 
+     *               + ( dp[k-1][i-denom[j]][j] if denom[j] <= i) // choose denom j; #remaning coin becomes k-1
      */
     public static int countWaysKCoins(int[] denom, int value, int k)
     {
