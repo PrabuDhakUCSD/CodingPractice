@@ -1,7 +1,7 @@
 /* 
  * Given an integer array ip, for each index i, count number of items
  * greater than ip[i] to the right of i.
- * /
+ */
 public class CountNumBigOnRight {
 
     static class Pair {
