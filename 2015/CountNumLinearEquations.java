@@ -16,6 +16,13 @@ import java.util.Arrays;
     The equation "2x + 2y + 3z = 4"  has 3 solutions.
     (x=0,y=2,z=0), (x=2,y=0,z=0), (x=1,y=1,z=0)
     
+    This problem is same as:
+    
+    Given n coin denominations and a change C, count number of ways to make C using unlimited
+    supply of coins. Here, denominations map to coefficients and C maps to rhs.
+    
+    dp[i] = number of ways to make change i
+    dp[0] = 1 // base case
  */
 public class CountNumLinearEquations {
 
