@@ -1,5 +1,24 @@
 import java.util.*;
 
+/*
+ * There is a river that runs horizontally through an area. There are a set of cities
+ * above and below the river. Each city above the river is matched with a city below
+ * the river, and you are given this matching as a set of pairs.
+ *
+ * You are interested in building a set of bridges across the river to connect the
+ * largest number of the matching pairs of cities, but you must do so in a way that
+ * no two bridges intersect one another.
+ * 
+ * Follow longest increasing subsequence.
+ * 
+ * dp[i] = max number of connections possible when considering cities 1 to i. ith
+ *         city is the last connected city.
+ * dp[1] = 1
+ * dp[i] = max ( dp[j] + 1 for all 1<=j<i where end[j] < end[j] ) // end[j] is the location
+ *                                                                // of jth pair
+ * 
+ * result = max (dp[i] 1<=i<=n)
+ */
 public class ConnectCitiesBridges {
 
     static class IndexBasedComparator implements Comparator<Integer> {
