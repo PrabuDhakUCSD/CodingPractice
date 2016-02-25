@@ -1,4 +1,8 @@
-
+/*
+ * Input: A sorted array of integers where each elem appears exactly twice
+ *        and only one element appears exactly once.
+ * Find the element that appears only once.
+ */
 public class FindMissingElement {
 
     public static int findMissing(int[] input) {
