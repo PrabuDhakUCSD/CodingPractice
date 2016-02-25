@@ -7,9 +7,11 @@ public class FindMajorityElement {
     public static int findMajority(int[] input) {
         int majElement = 0;
         int leadCount = 0;
-        
+        // Uses tournament method.
         for(int elem : input) {
             if (leadCount == 0) {
+                // This means, if there are m elements seen so far, no majority yet.
+                // Any element had appeared atmost m/2 times (it's lead is offset by other m/2 elements).
                 leadCount = 1;
                 majElement = elem;
             } else if (elem == majElement) {
@@ -30,6 +32,10 @@ public class FindMajorityElement {
             }
         }
         
+        // Even though lead is greater than zero, it does not mean there is a majority element.
+        // So verify that the reported majority element is indeed a majority element.
+        // Eg. { 3,4,5,6,7,8,9 } --> 9 is reported as majority with lead 1
+        // Eg. { 3,4,5,6,7,8,9,9,9 } --> 9 is reported as majority with lead 3
         if (count >= input.length/2+1)
             return majElement;
         
