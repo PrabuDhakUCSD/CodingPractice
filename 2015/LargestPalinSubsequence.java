@@ -2,6 +2,16 @@ import java.util.*;
 
 /*
  * Given an input string, find the longest palindrome subsequence.
+ * 
+ * dp[i][j] = length of longest palindrome subsequence of substring ip[i...j]
+ * dp[0][len-1] is what is required
+ *
+ * dp[i][j] = 0 when i>j
+ * dp[i][j] = 1 when i == j
+ * dp[i][j] = dp[i+1][j-1]+2 when ip[i] == ip[j] (left diagonal cell)
+              // no need to consider diagonal cell when ip[i] != ip[j] since left and bottom cell
+              // would have already considered the left diagonal cell.
+            = max(dp[i][j-1], dp[i+1][j]) otherwise (left or bottom cell))
  */
 public class LargestPalinSubsequence {
 
